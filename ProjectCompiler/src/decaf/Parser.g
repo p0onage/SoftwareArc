@@ -18,11 +18,15 @@ program: TK_class ID LCURLY (field_decl)* (method_decl)* RCURLY EOF;
 
 // ")+","";");" This part is an error. Need "," inside the brackets. and ";" at the end
 
-field_decl: (type ( ID | ID "[" INT "]" )+","";"); 
+field_decl			: (type ( ID | ID "[" INT "]" )+","";"); 
 
-method_decl: (type | "void") ID "("(type ID)+","")" block;
+method_decl			: (type | "void") ID "("(type ID)+","")" block;
 
-block: "{" (var_decl)* (statement)* "}";
+block				: "{" (var_decl)* (statement)* "}";
+
+var_decl			: ((type) (ID)*","";"); 
+
+
 
 statement: ("");
 
